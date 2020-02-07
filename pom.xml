@@ -6,4 +6,11 @@
   <packaging>war</packaging>
   <name>hellojsp-examples</name>
   <description>hellojsp examples</description>
+  <dependencies>
+  	<dependency>
+  		<groupId>org.hellojsp</groupId>
+  		<artifactId>hellojsp</artifactId>
+  		<version>0.9.1</version>
+  	</dependency>
+  </dependencies>
 </project>
