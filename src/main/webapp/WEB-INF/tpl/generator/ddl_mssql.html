@@ -1,0 +1,47 @@
+<div style="padding:10px; margin-bottom:10px; border:1px solid #DEDEDE; font-size:12px; font-family:dotum; line-height:110%;">
+/*<br>
+** <strong>Malgn Generator SQL</strong><br>
+** - FROM {{dbtype}} TO MS-SQL<br>
+** - {{now}}<br>
+**<br>
+** <strong>변환규칙</strong> <br>
+<!-- IF START 'mysql_block' -->** INT=>INT, TINYINT=>TINYINT, SMALLINT=>SMALLINT, MEDIUMINT=>INT, BIGINT=>BIGINT<br>
+** FLOAT=>FLOAT, DOUBLE=>REAL, DECIMAL=>DECIMAL<br>
+** VARCHAR=>NVARCHAR, TEXT=>NTEXT, MEDIUMTEXT=>NTEXT, LONGTEXT=>NTEXT, TINYTEXT=>NTEXT, CHAR=>NCHAR<br>
+** DATETIME=>DATATIME, DATE=>DATATIME<br><!-- IF END 'mysql_block' -->
+<!-- IF START 'oracle_block' -->** NUMBER=>INT, LONG=>BIGINT, FLOAT=>REAL, VARCHAR2=>NVARCHAR, CLOB=>NTEXT, CHAR=>NCHAR, DATE=>DATATIME<br><!-- IF END 'oracle_block' -->
+*/
+<!-- LOOP START 'list' -->
+<br>
+<br>
+/* 테이블 생성 - <strong>{{list.table_name_conv}}</strong> */ <br><br>
+CREATE TABLE {{list.table_name_conv}} (
+<!-- LOOP START 'columns' -->
+<br>&nbsp;&nbsp;&nbsp;
+<span style="color:#4C5BA9">{{columns.column_name_conv}}</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#A94C4C">{{columns.data_type_conv}}</span>
+<!-- IF START 'columns.data_default_conv' -->&nbsp;&nbsp;{{columns.data_default_conv}}<!-- IF END 'columns.data_default_conv' -->
+<!-- IF START 'columns.identity_conv' -->&nbsp;&nbsp;IDENTITY<!-- IF END 'columns.identity_conv' -->
+<!-- IF START 'columns.nullable_conv' -->&nbsp;&nbsp;<span style="color:#999999;">{{columns.nullable_conv}}</span><!-- IF END 'columns.nullable_conv' -->
+{{columns.sep}}
+<!-- LOOP END 'columns' -->
+<!-- LOOP START 'constraints' -->
+,<br>&nbsp;&nbsp;&nbsp;&nbsp;{{constraints.constraint_type}}
+({{constraints.fields_conv}})
+<!-- LOOP END 'constraints' -->
+<br>)	
+<br>GO
+
+<br><br>/* INDEX 생성 - {{list.table_name_conv}} */<br><br>
+<!-- LOOP START 'index_list' -->
+{{index_list.index_query}}
+<br>GO<br>
+<!-- LOOP END 'index_list' -->
+
+<br><br>/* 코멘트 생성 - {{list.table_name_conv}} */<br><br>
+<!-- IF START 'list.comment_query' -->{{list.comment_query}} <br>GO<br><!-- IF END 'list.comment_query' -->
+<!-- LOOP START 'columns' -->
+<!-- IF START 'columns.comment_query' -->{{columns.comment_query}} <br>GO<br><!-- IF END 'columns.comment_query' -->
+<!-- LOOP END 'columns' -->
+<!-- LOOP END 'list' -->
+</div>

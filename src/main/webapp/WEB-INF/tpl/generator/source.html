@@ -1,0 +1,100 @@
+<div class="tabs" style="float:left;height:23px;margin-bottom:5px;position:relative;">
+	<div style="position:absolute;width:100%;height:1px;top:22px;border-top:1px solid #91A7B4;overflow:hidden"></div>
+	<div style="position:absolute;">
+		<ul style="float:left;">
+			<li><span><a href="schema.jsp?schema={{schema}}&table={{table}}">Schema</a></span></li>
+			<li><span><a href="data.jsp?schema={{schema}}&table={{table}}">Data</a></span></li>
+			<li><span><a href="sql.jsp?schema={{schema}}&table={{table}}">SQL</a></span></li>
+			<li><span><a href="ddl.jsp?schema={{schema}}&table={{table}}">DDL</a></span></li>
+			<li class="current"><span><a href="source.jsp?schema={{schema}}&table={{table}}">Generate</a></span></li>
+		</ul>
+	</div>
+	<div class="nm01">{{table}}</div>
+</div>
+<div style="clear:both;"></div>
+
+<form name="form1" method="post">
+<input type="hidden" name="schema" value="{{schema}}">
+<table class="a_tb01" cellpadding="0" cellspacing="0">
+<tr>
+	<td class="a_td01" style="white-space:nowrap">
+		Directory : <input type="text" name="directory" size="10">
+		&nbsp; &nbsp;
+		Prefix : <input type="text" name="prefix" size="10">
+		&nbsp; &nbsp;
+		Title : <input type="text" name="title" size="10">
+		&nbsp; &nbsp;
+		MenuId : <input type="text" name="mid" size="10">
+		&nbsp; &nbsp;
+		Skin : 
+		<select name="skin" onchange="SetCookie('SKIN', this.value, 3600 * 24 * 30)">
+			<!-- LOOP START 'skins' -->
+			<option value="{{skins.id}}">{{skins.name}}</option>
+			<!-- LOOP END 'skins' -->
+		</select>
+		&nbsp; &nbsp;
+		<input type="submit" value="소스코드생성" class="btn01">
+	</td>
+</tr>
+</table>
+</form>
+{{form_script}}
+
+<!-- IF START 'list' -->
+<div class="tabs2" style="float:left;height:23px;margin-top:10px; margin-bottom:5px;position:relative;">
+	<div style="position:absolute;width:100%;height:1px;top:22px;border-top:1px solid #91A7B4;overflow:hidden"></div>
+	<div style="position:absolute;">
+		<ul style="float:left;">
+			<!-- LOOP START 'list' -->
+			<!-- LOOP START 'result' -->
+			<li id="tab_{{result.type}}"><span><a href="javascript:tabManager('{{result.type}}')" onfocus="this.blur()">{{result.filename}}</a></span></li>
+			<!-- LOOP END 'result' -->
+			<!-- LOOP END 'list' -->
+		</ul>
+	</div>
+</div>
+<div style="clear:both;"></div>
+
+<!-- LOOP START 'list' -->
+<!-- LOOP START 'result' -->
+<div id="{{result.type}}" style="display:none;">
+	<!--pre style="margin:0px;font-family:dotum;font-size:12px;text-align:left;">{{result.src_html}}</pre-->
+	<textarea name="" spellcheck="false" id="src_{{result.type}}" style="width:99.8%; height:70%; border-width:0px; font-size:12px; font-family:dotum; line-height:110%;">{{result.src_html}}</textarea>
+	<div id="log_{{result.type}}" style="font-size:12px;background:#e6e6e6;padding:5px 0 5px 0;margin-top:5px;">
+		&nbsp; <font style="font-family:arial;color:#666666">{{result.write_path}}</font>&nbsp;
+		--- <font style="font-family:arial;color:<!-- IF START 'result.write_flag' -->blue<!-- IF END 'result.write_flag' --><!-- IFNOT START 'result.write_flag' -->red<!-- IFNOT END 'result.write_flag' -->">{{result.write_log}}</font>
+	</div>
+</div>
+<!-- LOOP END 'result' -->
+<!-- LOOP END 'list' -->
+
+<script>
+var preId = "";
+function tabManager(id) {
+	try { 
+		if(preId) {
+			document.getElementById("tab_" + preId).className = "";
+			document.getElementById(preId).style.display = "none";
+		}
+		document.getElementById("tab_" + id).className = "current";
+		document.getElementById(id).style.display = "block";
+		preId = id;
+	} catch(e) {}
+
+	setHeight(id);
+
+	try { document.getElementById(id).focus(); } catch(e) {}
+}
+tabManager("list.jsp");
+
+function setHeight(id) {
+	try { 
+		var src = document.getElementById("src_" + id);
+		var log = document.getElementById("log_" + id);
+		var h = document.body.offsetHeight - src.offsetTop - (log.offsetHeight + 15);
+		src.style.height = (h > 0 ? h : 100) + "px"; 
+	} catch(e) {}
+}
+addEvent("onresize", function() { setHeight(preId); });
+</script>
+<!-- IF END 'list' -->

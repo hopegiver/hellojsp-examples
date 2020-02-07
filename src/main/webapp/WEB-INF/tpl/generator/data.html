@@ -1,0 +1,79 @@
+<div class="tabs" style="float:left;height:23px;margin-bottom:5px;position:relative;">
+	<div style="position:absolute;width:100%;height:1px;top:22px;border-top:1px solid #91A7B4;overflow:hidden"></div>
+	<div style="position:absolute;">
+		<ul style="float:left;">
+			<li><span><a href="schema.jsp?schema={{schema}}&table={{table}}">Schema</a></span></li>
+			<li class="current"><span><a href="data.jsp?schema={{schema}}&table={{table}}">Data</a></span></li>
+			<li><span><a href="sql.jsp?schema={{schema}}&table={{table}}">SQL</a></span></li>
+			<li><span><a href="ddl.jsp?schema={{schema}}&table={{table}}">DDL</a></span></li>
+			<li><span><a href="source.jsp?schema={{schema}}&table={{table}}">Generate</a></span></li>
+		</ul>
+	</div>
+	<div class="nm01">{{table}}</div>
+</div>
+<div style="clear:both;"></div>
+
+<form name="form1" method="post">
+<table class="a_tb01" cellpadding="0" cellspacing="0">
+<tr>
+	<td class="a_td01">
+		<table cellpadding="0" cellspacing="0">
+		<tr>
+			<td><nobr>{{list_total}}</nobr></td>
+			<td style="padding:0 10px 0 15px"><div style="position:relative;top:-4px;"><nobr>{{pagebar}}</nobr></td>
+			<td>
+				<div style="margin:0 0 0 10px"><nobr>
+					Where : <input type="text" name="where" size="30" value="{{where}}" style="ime-mode:inactive">
+					<input type="submit" value="검색" class="btn01">
+				</nobr></div>
+			</td>
+			<td align="right">
+				<span style="margin-left:20px;font-family:dotum;">{{query}}</span>
+			</td>
+		</tr>
+		</table>
+	</td>
+</tr>
+</table>
+</form>
+{{form_script}}
+
+<div id="wrapper" style="overflow:auto;width:100%;height:60%">
+<table class="l_tb01" cellspacing="0" cellpadding="0">
+<tr>
+	<td class="l_th01">No</td>
+	<!-- LOOP START 'columns' -->
+	<td class="l_th01" title="{{columns.column_comment}}">
+		{{columns.column_name}}
+		<br><span style="font-size:10px;color:silver">{{columns.data_type_conv}}</span>
+	</td>
+	<!-- LOOP END 'columns' -->
+</tr>
+<!-- LOOP START 'list' -->
+<tr onclick="toggleColor(this)">
+	<td class="l_td01 dr01" align="center" bgcolor="#efefef">{{list.__asc}}</td>
+	<!-- LOOP START 'data' -->
+	<td class="l_td01{{data.dr01}}"><nobr title="{{data.value_title}}">{{data.value_conv}}</nobr></td>
+	<!-- LOOP END 'data' -->
+</tr>
+<!-- LOOP END 'list' -->
+</table>
+
+<p style="height:20px"></p>
+
+</div>
+
+<script>
+function toggleColor(tr) {
+	tr.style.backgroundColor = tr.style.backgroundColor == "" ? "#FFFFCE" : "";
+}
+function setHeight() {
+	try { 
+		var wrapper = document.getElementById("wrapper");
+		var h = document.body.offsetHeight - wrapper.offsetTop - 10;
+		wrapper.style.height = (h > 0 ? h : 100) + "px"; 
+	} catch(e) {}
+}
+addEvent("onload", setHeight);
+addEvent("onresize", setHeight);
+</script>

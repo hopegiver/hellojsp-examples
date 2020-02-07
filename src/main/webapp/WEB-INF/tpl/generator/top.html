@@ -1,0 +1,68 @@
+<style type="text/css">
+.top { width:100%; height:50px; background:#eeeeee; }
+.tit01, .tit01 a { color:#c0c0c0; font-family:tahoma; font-size:18px; font-weight:bold; padding-left:10px;}
+.tit02 { }
+.tit03 { color:#c0c0c0; padding-right:10px; }
+body { margin:0px; }
+</style>
+
+<form name="form1">
+<table class="top" cellpadding="0" cellspacing="0">
+<col width="350"><col><col width="200">
+<tr>
+	<td class="tit01"><nobr><a href="../generator/" target="_top">MalgnDBManager</a></nobr></td>
+	<td class="tit02"><nobr>
+		&nbsp; <select name="jndi" style="width:500px; font-family:arial;" onchange="changeJndi();">
+			<option value="">- JNDI 선택 - </option>
+			<!-- LOOP START 'list' -->
+			<option value="{{list.jndi-name}}" doc-root="{{list.doc-root}}" title="{{list.url}}">[ {{list.name}} ] &nbsp; - &nbsp; {{list.url}}</option>
+			<!-- LOOP END 'list' -->
+		</select>
+		<!--span id="table_name"></span-->
+		<span id="ant" style="display:none"><input type="button" value="ANT" class="btn01" onclick="OpenWindows('ant.jsp?jndi=' + document.forms['form1']['jndi'].value, '', 700, 800, 1, 1)"></span>
+		<span id="grep" style="display:none"><input type="button" value="GREP" class="btn01" onclick="OpenWindows('grep.jsp?jndi=' + document.forms['form1']['jndi'].value, '', 1200, 800, 1, 1)"></span>
+		<span id="program" style="display:none"><input type="button" value="PROGRAM INDEX" class="btn01" onclick="goProgramIndex()"></span>
+		</nobr>
+	</td>
+	<td class="tit03" align="right" width="400">{{property}}</td>
+</tr>
+</table>
+</form>
+{{form_script}}
+
+<script>
+function changeJndi() {
+	var jndi = document.forms['form1']['jndi'].value;
+	SetCookie("jndi", jndi);
+	SetCookie("table", "");
+	parent.LIST.location = "list.jsp?jndi=" + jndi;
+	parent.RIGHT.location = "right.jsp";
+
+	toggle();
+}
+
+function toggle() {
+	var el = document.forms['form1']['jndi'];
+	var r = el.options[el.selectedIndex].getAttribute('doc-root');
+	try { 
+		document.getElementById("ant").style.display = r && el.value ? "inline" : "none"; 
+		document.getElementById("program").style.display = r && el.value ? "inline" : "none"; 
+		document.getElementById("grep").style.display = r && el.value ? "inline" : "none"; 
+	} catch(e) {}
+}
+toggle();
+/*
+function display(table) {
+	document.getElementById("table_name").innerHTML = table;
+}
+*/
+function goProgramIndex() {
+	if(!confirm("프로그램 목록을 생성하시겠습니까?\n이 작업은 시간이 소요됩니다.")) return;
+	ifrm.location.href = "program_index.jsp?jndi=" + document.forms['form1']['jndi'].value;
+}
+</script>
+
+<!--
+<iframe name="ifrm" id="ifrm" src="" width="100%" height="500" frameborder="0"></iframe>
+-->
+<iframe name="ifrm" id="ifrm" src="" width="0" height="0" frameborder="0"></iframe>

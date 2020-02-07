@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>{{SYS_TITLE}}</title>
+<meta http-equiv="Content-Type" content="text/html; chaset=utf-8" />
+<link rel="stylesheet" type="text/css" href="../html/css/admin.css" />
+<script language="javascript" type="text/javascript" src="../js/common.jsp"></script>
+<script language="javascript" type="text/javascript" src="../js/validate.jsp"></script>
+<script language="javascript" type="text/javascript" src="../js/admin_func.jsp"></script>
+</head>
+
+<body>
+
+<div style="padding:10px 10px 0px 10px;height:100%;">
+<!-- INCLUDE NAME 'BODY' -->
+</div>
+
+<iframe name="sysfrm" id="sysfrm" frameborder="0" width="0" height="0" src=""></iframe>
+
+<script> 
+try { 
+    <!-- IFNOT START 'NOCOOKIE' -->
+    parent.LIST.toggleBackground("{{table}}");
+    SetCookie("PREPAGE", document.URL, "", "/");
+    <!-- IFNOT END 'NOCOOKIE' -->
+    HtmlConvertor();
+} catch(e) {}
+</script>
+
+</body>
+</html>
