@@ -9,3 +9,9 @@ pg.setTotalNum(300);
 m.p(pg.getPager());
 
 %>
+<pre>
+Pager pg = new Pager(request);
+pg.setTotalNum(300);
+
+m.p(pg.getPager());
+</pre>

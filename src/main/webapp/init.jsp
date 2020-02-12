@@ -1,4 +1,4 @@
-<%@ page import="java.util.*,java.io.*,hellojsp.db.*,hellojsp.util.*" %><%
+<%@ page import="java.util.*,java.io.*,hellojsp.db.*,hellojsp.util.*,dao.*" %><%
 
 Hello m = new Hello(request, response, out);
 
