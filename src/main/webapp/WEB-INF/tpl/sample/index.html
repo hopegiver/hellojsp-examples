@@ -1,0 +1,43 @@
+<div class="page-header">
+	<h1>Sample(CRUD)</h1>
+</div>
+<div class="panel panel-default">
+	<div class="panel-body">
+		<div class="pull-right">
+			<form name="form1" method="get" class="form-inline">
+			<input type="text" name="s_keyword" class="form-control">
+			<input class="btn btn-default" type="submit" value="Search">
+			</form>
+			${form_script}
+		</div>
+		<div class="pull-left">
+			<a href="create.jsp" class="btn btn-small btn-primary">New</a>
+		</div>
+	</div>
+	<table class="table table-bordered table-striped">
+	<tr>
+		<th>ID</th>
+		<th>Subject</th>
+		<th>Content</th>
+		<th>File</th>
+		<th>Date</th>
+		<th>Manage</th>
+	</tr>
+	<!--#foreach($item in $list)-->
+	<tr>
+		<td><a href="read.jsp?id=${item.id}">${item.id}</a></td>
+		<td><a href="read.jsp?id=${item.id}">${item.subject}</a></td>
+		<td>${item.content}</td>
+		<td><a href="download.jsp?id=${item.id}">${item.att_file_name}</a></td>
+		<td>${item.reg_date}</td>
+		<td>
+			<a href="update.jsp?id=${item.id}" class="label label-primary">Edit</a>
+			<a href="delete.jsp?id=${item.id}" class="label label-danger">Delete</a>
+		</td>
+	</tr>
+	<!--#end-->
+	</table>
+	<div class="panel-body text-center">
+		${pagebar}
+	</div>
+</div>

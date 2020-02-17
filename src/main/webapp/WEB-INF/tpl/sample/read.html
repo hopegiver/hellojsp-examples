@@ -1,0 +1,27 @@
+<div class="page-header">
+	<h1>Sample(CRUD)</h1>
+</div>
+
+<div class="panel panel-default">
+	<div class="panel-heading">
+		<h3 class="panel-title">Article Info.</h3>
+	</div>
+	<div class="panel-body">
+		<dl class="dl-horizontal">
+			<dt>Subject</dt>
+			<dd>${info.subject}</dd>
+			<dt>Content</dt>
+			<dd>${info.content}</dd>
+			<dt>File</dt>
+			<dd>${info.att_file_name}</dd>
+			<dt>Date</dt>
+			<dd>${info.reg_date}</dd>
+			<dd>
+				<br>
+				<input type="button" value="Back" class="btn btn-default" onclick="history.go(-1)">
+				<a href="update.jsp?id=${info.id}" class="btn btn-primary">Edit</a>
+				<a href="delete.jsp?id=${info.id}" class="btn btn-danger">Delete</a>
+			</dd>
+		</dl>
+	</div>
+</div>
