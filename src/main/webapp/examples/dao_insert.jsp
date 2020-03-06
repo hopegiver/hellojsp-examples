@@ -8,7 +8,9 @@ blog.item("content", "Nice to meet you too.");
 blog.item("reg_date", Hello.time());
 blog.item("status", 1);
 
-boolean ret = blog.insert();
+//boolean ret = blog.insert();
+int ret = blog.insertWithId();
+
 m.p(ret);
 
 %>
@@ -23,6 +25,8 @@ blog.item("content", "Nice to meet you too.");
 blog.item("reg_date", Hello.time());
 blog.item("status", 1);
 
-boolean ret = blog.insert();
+//boolean ret = blog.insert();
+int ret = blog.insertWithId();
+
 m.p(ret);
 </pre>

@@ -17,4 +17,5 @@ XML xml = new XML(Config.getDocRoot() + "/data/sample.xml");
 m.p(xml.getString("//config/env/logDir"));
 
 m.p(xml.getDataSet("//config/users/user"));
+
 </pre>
