@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
+    <title>Basic Tables - Ace Admin</title>
+    
+    <!-- include common vendor stylesheets -->
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="../css/fontawesome.css">
+    <link rel="stylesheet" type="text/css" href="../css/brands.css">    
+    <link rel="stylesheet" type="text/css" href="../css/regular.css">
+    <link rel="stylesheet" type="text/css" href="../css/solid.css">
+        
+    <!-- include vendor stylesheets used in "Basic Tables" page. see "application/views/default/pages/partials/tables-basic/@vendor-stylesheets.hbs" -->
+    <link rel="stylesheet" type="text/css" href="../css/ace.min.css">
+  </head>
+
+  <body>
+   <div class="body-container">
+      <nav class="navbar navbar-expand-lg navbar-fixed navbar-default">
+       <div class="navbar-inner">
+      
+          <div class="navbar-intro justify-content-xl-between">
+      
+              <button type="button" class="btn btn-burger burger-arrowed static collapsed ml-2 d-flex d-xl-none" data-toggle-mobile="sidebar" data-target="#sidebar" aria-controls="sidebar" aria-expanded="false" aria-label="Toggle sidebar">
+                 <span class="bars"></span>
+              </button><!-- mobile sidebar toggler button -->
+              
+              <a class="navbar-brand text-white" href="#">
+                  <i class="fa fa-leaf"></i>
+                  <span>Ace</span>
+                  <span>App</span>
+              </a><!-- /.navbar-brand -->
+              
+              <button type="button" class="btn btn-burger mr-2 d-none d-xl-flex" data-toggle="sidebar" data-target="#sidebar" aria-controls="sidebar" aria-expanded="true" aria-label="Toggle sidebar">
+                  <span class="bars"></span>
+              </button><!-- sidebar toggler button -->
+        
+          </div><!-- /.navbar-intro -->
+      
+      
+          <div class="navbar-content">
+      
+              <button class="navbar-toggler py-2" type="button" data-toggle="collapse" data-target="#navbarSearch" aria-controls="navbarSearch" aria-expanded="false" aria-label="Toggle navbar search">
+                  <i class="fa fa-search text-white text-90 py-1"></i>
+              </button>
+      
+              <div class="navbar-content-section collapse navbar-collapse navbar-backdrop" id="navbarSearch">
+                  <div class="d-flex align-items-center ml-lg-3">
+                      <i class="fa fa-search text-white mr-n1 d-none d-lg-block"></i>
+                      <input type="text" class="navbar-search-input px-1 pl-lg-4 ml-lg-n3 w-100 autofocus" placeholder=" SEARCH ..." aria-label="Search" />
+                  </div>
+              </div>
+              
+          </div><!-- .navbar-content -->
+      
+      
+          <!-- mobile #navbarMenu toggler button -->
+          <button class="navbar-toggler ml-1 mr-2 px-1" type="button" data-toggle="collapse" data-target="#navbarMenu" aria-controls="navbarMenu" aria-expanded="false" aria-label="Toggle navbar menu">
+              <span class="pos-rel">
+                  <img class="border-2 brc-white-tp1 radius-round" width="36" src="../images/user.jpg" alt="Jason's Photo">
+                  <span class="bgc-warning radius-round border-2 brc-white p-1 position-tr mr-1px mt-1px"></span>
+              </span>
+          </button>
+      
+          
+          <div class="navbar-menu collapse navbar-collapse navbar-backdrop" id="navbarMenu">
+            
+            <div class="navbar-nav">
+              <ul class="nav">
+                  <li class="nav-item dropdown order-first order-lg-last">
+                     <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">          
+                          <img id="id-navbar-user-image" class="d-none d-lg-inline-block radius-round border-2 brc-white-tp1 mr-2" src="../images/user.jpg" alt="Jason's Photo">
+                          <span class="d-inline-block d-lg-none d-xl-inline-block">
+                              <span class="text-90" id="id-user-welcome">Welcome,</span>
+                              <span class="nav-user-name">Jason</span>
+                          </span>
+      
+                          <i class="caret fa fa-angle-down d-none d-xl-block"></i>
+                          <i class="caret fa fa-angle-left d-block d-lg-none"></i>
+                      </a>
+      
+                      <div class="dropdown-menu dropdown-caret dropdown-menu-right dropdown-animated brc-primary-m3">
+                          <div class="d-none d-lg-block d-xl-none">
+                              <div class="dropdown-header">
+                                  Welcome, Jason
+                              </div>
+                              <div class="dropdown-divider"></div>
+                          </div>
+       
+                          <a class="dropdown-item btn btn-outline-grey btn-h-lighter-primary btn-a-lighter-primary" href="html/page-profile.html">
+                              <i class="fa fa-user text-primary-m1 text-105 mr-1"></i>
+                              Profile
+                          </a>
+<!--                          
+                          <a class="dropdown-item btn btn-outline-grey btn-h-lighter-success btn-a-lighter-success" href="#" data-toggle="modal" data-target="#id-ace-settings-modal">
+                              <i class="fa fa-cog text-success-m1 text-105 mr-1"></i>
+                              Settings
+                          </a>
+-->      
+                          <div class="dropdown-divider brc-primary-l2"></div>
+      
+                          <a class="dropdown-item btn btn-outline-grey btn-h-lighter-secondary btn-a-lighter-secondary" href="html/page-login.html">
+                              <i class="fa fa-power-off text-warning-d1 text-105 mr-1"></i>
+                              Logout
+                          </a>
+                      </div>
+                  </li><!-- /.nav-item:last -->
+      
+              </ul><!-- /.navbar-nav menu -->
+            </div><!-- /.navbar-nav -->
+      
+         </div><!-- /.navbar-menu.navbar-collapse -->
+      
+       </div><!-- /.navbar-inner -->
+      </nav>
+      
+      
+      <div class="main-container">
+        
+         <div id="sidebar" class="sidebar sidebar-fixed expandable sidebar-default d-none d-xl-block">
+          <div class="sidebar-inner">
+          
+           <div class="ace-scroll flex-grow-1" ace-scroll>
+            
+        
+            <ul class="nav has-active-border" role="navigation" aria-label="Main">
+                
+<!--                
+               <li class="nav-item-caption">
+               		<span class="fadeable pl-3">MAIN</span>
+               		<span class="fadeinable mt-n2 text-125">&hellip;</span>
+               </li>
+ -->               
+               
+               <li class="nav-item">
+                 <a href="index.jsp" class="nav-link">
+               	 <i class="nav-icon fa fa-edit"></i>
+               	 <span class="nav-text fadeable">
+               	  <span>Posts</span>
+               	 </span>
+                 </a>
+               	 <b class="sub-arrow"></b>
+               </li>
+               
+               <li class="nav-item">
+                 <a href="#" class="nav-link">
+               	 <i class="nav-icon fa fa-user"></i>
+               	 <span class="nav-text fadeable">
+               	  <span>Users</span>
+               	 </span>
+                 </a>
+               	 <b class="sub-arrow"></b>
+               </li>               
+
+               <li class="nav-item">
+                 <a href="#" class="nav-link">
+               	 <i class="nav-icon fa fa-list"></i>
+               	 <span class="nav-text fadeable">
+               	  <span>Groups</span>
+               	 </span>
+                 </a>
+               	 <b class="sub-arrow"></b>
+               </li>               
+
+               
+               <li class="nav-item">
+               
+                 <a href="#" class="nav-link dropdown-toggle">
+               	 <i class="nav-icon fa fa-cube"></i>
+               	 <span class="nav-text fadeable">
+               	  <span>Layouts</span>
+               	 </span>
+               	 <b class="caret fa fa-angle-left rt-n90"></b>
+                 </a>
+               
+               	<div class="hideable submenu collapse">
+               		<ul class="submenu-inner">
+               			<li class="nav-item">
+               			  <a href="#" class="nav-link">
+               				 <span class="nav-text">
+               				  <span>Dashboard 2</span>
+               				 </span>
+             			  </a>
+               			</li>
+               			<li class="nav-item">
+               			  <a href="#" class="nav-link">
+               				 <span class="nav-text">
+               				  <span>Dashboard 3</span>
+               				 </span>
+               			  </a>
+               			</li>
+               		</ul>
+               	</div>
+                   
+               	<b class="sub-arrow"></b>
+               </li>
+               
+            </ul>
+          
+           </div><!-- /.sidebar scroll -->
+        
+          </div>         
+         </div><!-- /#sidebar -->
+
+         <div role="main" class="main-content">
+
+#parse($BODY)
+
+          <footer class="footer d-none d-sm-block">
+             <div class="footer-inner bgc-white-tp1">
+                <div class="pt-3 border-none border-t-3 brc-grey-l1 border-double">
+                   <span class="text-muted">hellojsp &copy; 2020</span>
+                </div>
+             </div><!-- .footer-inner -->
+          
+             <div class="footer-tools">
+                <a id="btn-scroll-up" href="#" class="btn-scroll-up btn btn-dark btn-smd mb-2 mr-2">
+                   <i class="fa fa-angle-double-up mx-1"></i>
+                </a>
+             </div>
+          </footer>
+          
+          <!-- footer toolbox for mobile view -->
+          <footer class="d-sm-none footer footer-sm footer-fixed">
+           <div class="footer-inner">
+             <div class="btn-group d-flex h-100 mx-2 border-x-1 border-t-2 brc-primary-m3 bgc-default-l4 radius-t-1 shadow">
+                <button class="btn btn-outline-primary btn-h-lighter-primary btn-a-lighter-primary border-0">
+                   <i class="fas fa-sliders-h text-blue-m1 text-120"></i>
+                </button>
+          
+                <button class="btn btn-outline-purple btn-h-lighter-purple btn-a-lighter-purple border-0">
+                   <i class="fa fa-plus-circle text-purple-m2 text-120"></i>
+                </button>
+          
+                <button class="btn btn-outline-warning btn-h-lighter-warning btn-a-lighter-warning border-0" data-toggle="collapse" data-target="#navbarSearch" aria-controls="navbarSearch" aria-expanded="false" aria-label="Toggle navbar search">
+                   <i class="fa fa-search text-warning text-120"></i>
+                </button>
+          
+                <button class="btn btn-outline-brown btn-h-lighter-brown btn-a-lighter-brown border-0 mr-0">
+                   <i class="fa fa-bell text-brown-m1 text-120"></i>
+                </button>
+             </div>
+           </div>
+          </footer>
+        </div><!-- /main -->
+      
+      <!-- include common vendor scripts used in demo pages -->
+      <script type="text/javascript" src="../js/jquery.js"></script>
+      <script type="text/javascript" src="../js/popper.js"></script>
+      <script type="text/javascript" src="../js/bootstrap.js"></script>
+      
+      <!-- include Ace script -->
+      <script type="text/javascript" src="../js/ace.min.js"></script>
+      
+   </div><!-- /.body-container -->
+  </body>
+</html>
