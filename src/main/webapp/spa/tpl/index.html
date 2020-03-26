@@ -1,0 +1,57 @@
+          <div class="page-content container">
+           <div class="page-header">
+			    <h1 class="page-title text-primary-d2">
+			        Basic Tables
+			         <small class="page-info text-secondary-d2">
+			            <i class="fa fa-angle-double-right text-80"></i>
+			            simple tables
+			        </small>
+			    </h1>
+			</div>
+			<div class="row mb-3">
+				<div class="col">
+					<a href="#/add" class="btn btn-small btn-primary">New</a>
+				</div>
+				<div class="col">
+					<form name="form1" method="get" class="form-inline float-right">
+					<input type="text" name="s_keyword" class="form-control">
+					<input class="btn btn-outline-success ml-1" type="submit" value="Search">
+					</form>
+					{{form_script}}
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-12">
+
+					<table class="table table-striped">
+					<tr class="bgc-info-tp2 text-white">
+						<th><input type="checkbox" name="id_all"></th>
+						<th>ID</th>
+						<th>Subject</th>
+						<th>Content</th>
+						<th>File</th>
+						<th>Date</th>
+						<th>Manage</th>
+					</tr>
+					<% _.each(list, function(item) { %>
+					<tr>
+						<td><input type="checkbox" name="id" value="{{item.id}}"></td>
+						<td><a href="#/view?id={{item.id}}">{{item.id}}</a></td>
+						<td><a href="#/view?id={{item.id}}">{{item.subject}}</a></td>
+						<td>{{item.content}}</td>
+						<td><a href="download.jsp?id={{item.id}}">{{item.att_file_name}}</a></td>
+						<td>{{item.reg_date}}</td>
+						<td>
+							<a href="#/edit?id={{item.id}}" class="btn btn-sm btn-outline-primary">Edit</a>
+							<a href="#/del?id={{item.id}}" class="btn btn-sm btn-outline-danger">Delete</a>
+						</td>
+					</tr>
+					<% }) %>
+					</table>
+
+					<div class="float-right">{{pagebar}}</div>
+				</div><!-- /.col -->
+			</div><!-- /.row -->
+
+
+          </div><!-- /.page-content -->

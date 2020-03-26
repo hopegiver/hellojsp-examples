@@ -13,7 +13,7 @@
   </head>
 
   <body>
-    <div class="body-container">
+    <div class="body-container" id="app">
       
       <div class="main-container container">
 
@@ -38,7 +38,7 @@
                 <div style="background-image: url(../images/login-bg-1.svg);" class="bgc-primary-l4 d-flex flex-column align-items-center justify-content-center">
                    <h1 class="mt-5"><a href="html/dashboard.html"><i class="fa fa-leaf text-success-m2 text-125"></i></a></h1>
                    <h2 class="text-blue-d1">
-                       Ace <span class="text-80 text-dark-tp4">Application</span>
+                       Hellojsp <span class="text-80 text-dark-tp4">Admin</span>
                    </h2>
            
                    <div class="mt-5 mx-4 text-120 text-dark-tp4 text-justify">            
@@ -169,7 +169,7 @@
                             </button>
                         </div>
                     </form>
-                    $form_script
+                    {{form_script}}
                     
                     <div class="form-row">
                      <div class="col-12 col-md-6 offset-md-3 d-flex flex-column align-items-center justify-content-center">
@@ -411,8 +411,18 @@
       <script type="text/javascript" src="../js/jquery.js"></script>
       <script type="text/javascript" src="../js/popper.js"></script>
       <script type="text/javascript" src="../js/bootstrap.js"></script>
-      
+      <script type="text/javascript" src="../js/underscore.js"></script>
+      <script type="text/javascript" src="../js/hello.js"></script>
       <!-- include Ace script -->
       <script type="text/javascript" src="../js/ace.min.js"></script>
+      <script>
+      var login = {
+  		  dataUrl: 'api/login.jsp',
+  		  success: function(f) {
+			  location.href = './#/';
+  		  }
+  	  };
+      $('#app').template(login);
+      </script>
   </body>
 </html>

@@ -1,0 +1,40 @@
+		<div class="page-content container">
+			<div class="page-header">
+		    <h1 class="page-title text-primary-d2">
+		        Delete
+		         <small class="page-info text-secondary-d2">
+		            <i class="fa fa-angle-double-right text-80"></i>
+		            Common form elements
+		        </small>
+		    </h1>
+			</div>
+
+			<table class="table table-bordered">
+			<colgroup>
+				<col width="200"></col>
+			</colgroup>
+			<tr>
+				<th>Subject</th>
+				<td>{{info.subject}}</td>
+			</tr>
+			<tr>
+				<th>Content</th>
+				<td>{{info.content}}</td>
+			</tr>
+			<tr>
+				<th>File</th>
+				<td>{{info.att_file_name}}</td>
+			</tr>
+			<tr>
+				<th>Date</th>
+				<td>{{info.reg_date}}</td>
+			</tr>															
+			</table>			
+
+			<div class="text-center">
+				<input type="button" value="Back" class="btn btn-default" onclick="history.go(-1)">
+				<a href="#/edit?id={{info.id}}" class="btn btn-primary">Edit</a>
+				<a href="#/del?id={{info.id}}" class="btn btn-danger">Delete</a>
+			</div>
+			
+		</div>

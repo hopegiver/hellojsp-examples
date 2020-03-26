@@ -1,4 +1,4 @@
-<%@ page contentType="text/html; charset=utf-8" %><%@ include file="init.jsp" %><%
+<%@ page contentType="text/xml; charset=utf-8" %><%@ include file="init.jsp" %><%
 
 //Step1
 BlogDao blog = new BlogDao();
@@ -23,12 +23,10 @@ while(list.next()) {
 }
 
 //Step4
-p.setLayout("admin");
-p.setBody("admin/index");
 p.setLoop("list", list);
 p.setVar("total_cnt", lm.getTotalNum());
-p.setVar("pagebar", lm.getPaging());
+p.setVar("pagebar", lm.getPaging(1));
 p.setVar("form_script", f.getScript());
-p.print();
+p.print(1);
 
 %>

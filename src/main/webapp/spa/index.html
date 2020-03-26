@@ -14,16 +14,6 @@
         
     <!-- include vendor stylesheets used in "Basic Tables" page. see "application/views/default/pages/partials/tables-basic/@vendor-stylesheets.hbs" -->
     <link rel="stylesheet" type="text/css" href="../css/ace.min.css">
-    
-      <!-- include common vendor scripts used in demo pages -->
-      <script type="text/javascript" src="../js/jquery.js"></script>
-      <script type="text/javascript" src="../js/popper.js"></script>
-      <script type="text/javascript" src="../js/bootstrap.js"></script>
-      <script type="text/javascript" src="../js/underscore.js"></script>
-      <!-- include Ace script -->
-      <script type="text/javascript" src="../js/ace.min.js"></script>
-      <script type="text/javascript" src="../js/hello.js"></script>
-    
   </head>
 
   <body>
@@ -111,7 +101,7 @@
 -->      
                           <div class="dropdown-divider brc-primary-l2"></div>
       
-                          <a class="dropdown-item btn btn-outline-grey btn-h-lighter-secondary btn-a-lighter-secondary" href="logout.jsp">
+                          <a class="dropdown-item btn btn-outline-grey btn-h-lighter-secondary btn-a-lighter-secondary" href="#/logout">
                               <i class="fa fa-power-off text-warning-d1 text-105 mr-1"></i>
                               Logout
                           </a>
@@ -145,7 +135,7 @@
  -->               
                
                <li class="nav-item">
-                 <a href="index.jsp" class="nav-link">
+                 <a href="#list" class="nav-link">
                	 <i class="nav-icon fa fa-edit"></i>
                	 <span class="nav-text fadeable">
                	  <span>Posts</span>
@@ -216,7 +206,7 @@
 
          <div role="main" class="main-content">
 
-#parse($BODY)
+		<div id="main"></div>
 
           <footer class="footer d-none d-sm-block">
              <div class="footer-inner bgc-white-tp1">
@@ -256,6 +246,14 @@
           </footer>
         </div><!-- /main -->
       
+      <!-- include common vendor scripts used in demo pages -->
+      <script type="text/javascript" src="../js/jquery.js"></script>
+      <script type="text/javascript" src="../js/popper.js"></script>
+      <script type="text/javascript" src="../js/bootstrap.js"></script>
+      <script type="text/javascript" src="../js/underscore.js"></script>
+      <script type="text/javascript" src="../js/ace.min.js"></script>
+      <script type="text/javascript" src="../js/hello.js"></script>
+      <script type="text/javascript" src="app.js"></script>
    </div><!-- /.body-container -->
   </body>
 </html>

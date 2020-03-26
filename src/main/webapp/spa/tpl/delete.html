@@ -1,0 +1,24 @@
+		<div class="page-content container">
+			<div class="page-header">
+		    <h1 class="page-title text-primary-d2">
+		        Delete
+		         <small class="page-info text-secondary-d2">
+		            <i class="fa fa-angle-double-right text-80"></i>
+		            Common form elements
+		        </small>
+		    </h1>
+			</div>
+	
+			<div class="card panel-default">
+				<div class="card-body">
+					<form name="form1" method="post">
+						<div class="alert alert-danger" role="alert">Do you want to delete it?</div>
+						<input type="hidden" name="id" value="{{info.id}}">
+						<input type="button" value="Back" class="btn btn-default" onclick="history.go(-1)">
+						<input type="submit" value="Delete" class="btn btn-danger">
+					</form>
+					{{form_script}}
+				</div>
+			</div>
+
+		</div>

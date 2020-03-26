@@ -43,6 +43,7 @@
 	  <li><a href="examples/search.jsp">Search Page</a></li>
 	  <li><a href="examples/upload.jsp">File Uploading</a></li>
 	  <li><a href="examples/xml.jsp">XML Utility</a></li>
+	  <li><a href="examples/hellojs.html">hellojs</a></li>
 	</ul>
       
     </div>

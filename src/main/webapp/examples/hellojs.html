@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>HelloJS</title>
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script type="text/javascript" src="../js/underscore.js"></script>
+<script type="text/javascript" src="../js/hello.js"></script>
+</head>
+<body>
+
+<div id="app1"><h1>{{title}}</h1></div>
+<div id="app2"></div>
+<div id="app3"></div>
+<div id="app4"></div>
+<div id="app5">
+	<form>
+		<input type="text" name="name" placeholder="name"><input type="submit" value="submit">
+	</form>
+</div>
+
+
+<script type="text/template" id="app2_template">
+<h2>{{subtitle}}</h2>
+</script>
+
+<script>
+
+var app1 = {
+	data: {title:'hellojs example'}		
+}
+var app2 = {
+	templateId:'#app2_template',
+	data: {subtitle:'hellojs subtitle'}		
+}
+var app3 = {
+	templateUrl:'hellojs_template.html',
+	data: {name:'hellojs', age:10}		
+}
+var app4 = {
+	templateUrl:'hellojs_template.html',
+	dataUrl: 'hellojs_api.jsp'		
+}
+var app5 = {
+	dataUrl: 'hellojs_api.jsp',
+	success: function(ret) {
+		alert(ret.message);
+	}
+}
+
+$('#app1').template(app1);
+$('#app2').template(app2);
+$('#app3').template(app3);
+$('#app4').template(app4);
+$('#app5').template(app5);
+
+</script>
+<br>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<pre>
+var app1 = {
+	data: {title:'hellojs example'}		
+}
+var app2 = {
+	templateId:'#app2_template',
+	data: {subtitle:'hellojs subtitle'}		
+}
+var app3 = {
+	templateUrl:'hellojs_template.html',
+	data: {name:'hellojs', age:10}		
+}
+var app4 = {
+	templateUrl:'hellojs_template.html',
+	dataUrl: 'hellojs_api.jsp'		
+}
+var app5 = {
+	dataUrl: 'hellojs_api.jsp',
+	success: function(ret) {
+		alert(ret.message);
+	}
+}
+
+$('#app1').template(app1);
+$('#app2').template(app2);
+$('#app3').template(app3);
+$('#app4').template(app4);
+$('#app5').template(app5);
+</pre>
+</body>
+</html>
