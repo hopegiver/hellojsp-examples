@@ -3,4 +3,6 @@
 <properties>
 <entry key="name">Name</entry>
 <entry key="course">Course</entry>
+<entry key="edit">Edit</entry>
+<entry key="delete">Delete</entry>
 </properties>

@@ -16,7 +16,7 @@ $.fn.template = function(component) {
 					component.submit(f);					
 				} else {
 					$.ajax({
-						url: component.dataUrl,
+						url: _.isString(component.actionUrl) ? component.actionUrl : component.dataUrl,
 						type: 'POST',
 						dataType: 'json',
 						//processData: false,

@@ -10,6 +10,7 @@ p.setWriter(out);
 p.setVar("m", m);
 
 Message msg = new Message();
+msg.setLocale(Locale.KOREAN);
 p.setVar("msg", msg);
 
 Json j = new Json();
