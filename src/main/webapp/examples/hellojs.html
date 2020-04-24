@@ -22,6 +22,8 @@
 	</form>
 </div>
 
+<div id="app6"></div>
+
 
 <script type="text/template" id="app2_template">
 <h2>{{subtitle}}</h2>
@@ -50,13 +52,20 @@ var app5 = {
 		alert(ret.message);
 	}
 }
+var app6 = {
+	templateUrl:'hellojs_mix.jsp',
+	actionUrl:'hellojs_mix.jsp',
+	success: function(ret) {
+		alert(ret.message);
+	}
+}
 
 $('#app1').template(app1);
 $('#app2').template(app2);
 $('#app3').template(app3);
 $('#app4').template(app4);
 $('#app5').template(app5);
-
+$('#app6').template(app6);
 </script>
 <br>
 
