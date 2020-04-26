@@ -1,0 +1,80 @@
+		<div class="page-content container">
+			<div class="page-header">
+		    <h1 class="page-title text-primary-d2">
+		        Tree
+		         <small class="page-info text-secondary-d2">
+		            <i class="fa fa-angle-double-right text-80"></i>
+		            list
+		        </small>
+		    </h1>
+			</div>
+
+<div class="row">
+
+  <div class="col-12 col-md-6 mt-3 mt-md-0">
+    <div class="card border-0">
+      <div class="card-header bgc-green-d2">
+        <h3 class="card-title text-130 text-white">Browse Categories</span></h3>
+      </div>
+      <div class="card-body bgc-white border-1 border-t-0 brc-success-m3">
+        <div class="jqtree tree-dotted" id="id-jqtree-files"></div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="col-12 col-md-6 mt-3 mt-md-0">
+    <div class="card border-0">
+      <div class="card-header bgc-default-d2">
+        <h3 class="card-title text-130 text-white">
+          Choose Categories
+        </h3>
+      </div>
+      <div class="card-body bgc-white border-1 border-t-0 brc-default-m2">
+        <div class="jqtree" id="id-jqtree-categories"></div>
+      </div>
+    </div>
+    <br>
+    <button onclick="getSelectedNodes()">getSelectedNodes</button>
+  </div>
+
+</div>
+  
+			
+		</div>
+		
+<script type="text/javascript" src="../js/tree.jquery.js"></script>
+<script type="text/javascript" src="../js/treeview.js"></script>
+<script>
+
+var treeview = new TreeView({
+	autoOpen : true,
+	onClick : function(node) {
+		alert("id:"+node.id+", name:"+node.name);
+	}
+});
+<!--#foreach($item in $list)-->
+treeview.add('$item.id', '$item.pid', '$item.name');
+<!--#end-->
+treeview.create('#id-jqtree-files');
+
+
+var treeview2 = new TreeView({
+	autoOpen : false,
+	multiSelectable : true,
+});
+
+<!--#foreach($item in $list)-->
+treeview2.add('$item.id', '$item.pid', '$item.name');
+<!--#end-->
+
+treeview2.create('#id-jqtree-categories');
+
+function getSelectedNodes() {
+	var nodes = treeview2.getSelectedNodes();
+	var arr = [];
+	for(var i=0; i<nodes.length; i++) {
+		arr.push(nodes[i].id);
+	}
+	alert(arr);
+}
+</script>      		
