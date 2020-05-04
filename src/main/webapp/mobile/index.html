@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsenui.css">
+  <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsen-css-components.min.css">
+  <script src="https://unpkg.com/onsenui/js/onsenui.min.js"></script>
+  <script src="../js/jquery.js"></script>
+  <script src="../js/underscore.js"></script>
+  <script src="../js/hello.js"></script>
+</head>
+<body>
+ <ons-navigator id="appNavigator" swipeable swipe-target-width="80px">
+  <ons-page>
+    <ons-splitter id="appSplitter">
+      <ons-splitter-side id="sidemenu" page="tpl/sidemenu.html" swipeable side="right" collapse="" width="260px"></ons-splitter-side>
+      <ons-splitter-content page="tpl/tabbar.html"></ons-splitter-content>
+     </ons-splitter>
+  </ons-page>
+</ons-navigator>
+<style>
+  ons-splitter-side[animation=overlay] {
+    border-left: 1px solid #bbb;
+  }
+</style>
+<script src="app.js"></script>
+</body>
+</html>

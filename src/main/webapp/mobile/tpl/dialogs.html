@@ -1,0 +1,193 @@
+<ons-page id="dialogs-page">
+  <ons-toolbar>
+    <div class="left">
+      <ons-back-button>Home</ons-back-button>
+    </div>
+    <div class="center"></div>
+    <div class="right">
+      <ons-toolbar-button id="info-button" onclick="fn.showDialog('popover-dialog')"></ons-toolbar-button>
+    </div>
+  </ons-toolbar>
+
+  <ons-list-title>Notifications</ons-list-title>
+  <ons-list modifier="inset">
+    <ons-list-item tappable modifier="longdivider" onclick="ons.notification.alert('Hello, world!')">
+      <div class="center">
+        Alert
+      </div>
+    </ons-list-item>
+    <ons-list-item tappable modifier="longdivider" onclick="ons.notification.confirm('Are you ready?')">
+      <div class="center">
+        Simple Confirmation
+      </div>
+    </ons-list-item>
+    <ons-list-item tappable modifier="longdivider" onclick="ons.notification.prompt('What is your name?')">
+      <div class="center">
+        Prompt
+      </div>
+    </ons-list-item>
+    <ons-list-item tappable modifier="longdivider" onclick="ons.notification.toast('Hi there!', { buttonLabel: 'Dismiss', timeout: 1500 })">
+      <div class="center">
+        Toast
+      </div>
+    </ons-list-item>
+    <ons-list-item tappable modifier="longdivider" onclick="ons.openActionSheet({ buttons: ['Label 1', 'Label 2', 'Label 3', 'Cancel'], destructive: 2, cancelable: true })">
+      <div class="center">
+        Action/Bottom Sheet
+      </div>
+    </ons-list-item>
+  </ons-list>
+
+  <ons-list-title>Components</ons-list-title>
+  <ons-list modifier="inset">
+    <ons-list-item tappable modifier="longdivider" onclick="fn.showDialog('lorem-dialog')">
+      <div class="center">
+        Simple Dialog
+      </div>
+    </ons-list-item>
+    <ons-list-item tappable modifier="longdivider" onclick="fn.showDialog('watHmmSure-dialog')">
+      <div class="center">
+        Alert Dialog
+      </div>
+    </ons-list-item>
+    <ons-list-item tappable modifier="longdivider" onclick="fn.showDialog('toast-dialog')">
+      <div class="center">
+        Toast (top)
+      </div>
+    </ons-list-item>
+    <ons-list-item tappable modifier="longdivider" onclick="fn.showDialog('modal-dialog')">
+      <div class="center">
+        Modal
+      </div>
+    </ons-list-item>
+    <ons-list-item tappable modifier="longdivider" onclick="fn.showDialog('popover-dialog')">
+      <div class="center">
+        Popover - MD Menu
+      </div>
+    </ons-list-item>
+    <ons-list-item tappable modifier="longdivider" onclick="fn.showDialog('action-sheet-dialog')">
+      <div class="center">
+        Action/Bottom Sheet
+      </div>
+    </ons-list-item>
+  </ons-list>
+
+  <!-- Components -->
+  <ons-dialog id="lorem-dialog" cancelable>
+    <!-- Optional page. This could contain a Navigator as well. -->
+    <ons-page>
+      <ons-toolbar>
+        <div class="center">Simple Dialog</div>
+      </ons-toolbar>
+      <p style="text-align: center">Lorem ipsum dolor</p>
+      <p style="text-align: center">
+        <ons-button modifier="light" onclick="fn.hideDialog('lorem-dialog')">Close</ons-button>
+      </p>
+    </ons-page>
+  </ons-dialog>
+
+  <ons-alert-dialog id="watHmmSure-dialog" cancelable>
+    <div class="alert-dialog-title">Hey!!</div>
+    <div class="alert-dialog-content">
+      Lorem ipsum
+      <ons-icon icon="fa-commenting-o"></ons-icon>
+    </div>
+    <div class="alert-dialog-footer">
+      <button class="alert-dialog-button" onclick="fn.hideDialog('watHmmSure-dialog')">Wat</button>
+      <button class="alert-dialog-button" onclick="fn.hideDialog('watHmmSure-dialog')">Hmm</button>
+      <button class="alert-dialog-button" onclick="fn.hideDialog('watHmmSure-dialog')">Sure</button>
+    </div>
+  </ons-alert-dialog>
+
+  <ons-toast id="toast-dialog" animation="fall">Supercalifragilisticexpialidocious<button onclick="fn.hideDialog('toast-dialog')">No way</button></ons-toast>
+
+  <ons-modal id="modal-dialog" onclick="fn.hideDialog('modal-dialog')">
+    <p style="text-align: center">
+      Loading
+      <ons-icon icon="fa-spinner" spin></ons-icon>
+      <br><br> Click or wait
+    </p>
+  </ons-modal>
+
+  <ons-popover id="popover-dialog" cancelable direction="down" cover-target target="#info-button">
+    <ons-list id="popover-list">
+      <ons-list-item class="more-options" tappable onclick="fn.hideDialog('popover-dialog')">
+        <div class="center">Call history</div>
+      </ons-list-item>
+      <ons-list-item class="more-options" tappable onclick="fn.hideDialog('popover-dialog')">
+        <div class="center">Import/export</div>
+      </ons-list-item>
+      <ons-list-item class="more-options" tappable onclick="fn.hideDialog('popover-dialog')">
+        <div class="center">New contact</div>
+      </ons-list-item>
+      <ons-list-item class="more-options" tappable onclick="fn.hideDialog('popover-dialog')">
+        <div class="center">Settings</div>
+      </ons-list-item>
+    </ons-list>
+  </ons-popover>
+
+  <ons-action-sheet id="action-sheet-dialog" cancelable>
+    <ons-action-sheet-button onclick="fn.hideDialog('action-sheet-dialog')" icon="md-square-o">Action 1</ons-action-sheet-button>
+    <ons-action-sheet-button onclick="fn.hideDialog('action-sheet-dialog')" icon="md-square-o">Action 2</ons-action-sheet-button>
+    <ons-action-sheet-button onclick="fn.hideDialog('action-sheet-dialog')" modifier="destructive" icon="md-square-o">Action 3</ons-action-sheet-button>
+    <ons-action-sheet-button onclick="fn.hideDialog('action-sheet-dialog')" icon="md-square-o">Cancel</ons-action-sheet-button>
+  </ons-action-sheet>
+
+  <script>
+    ons.getScriptPage().onInit = function () {
+      this.querySelector('ons-toolbar div.center').textContent = this.data.title;
+      var toolbarButton = ons.platform.isAndroid() ? ons.createElement(`<ons-icon icon="md-more-vert"></ons-icon>`) : ons.createElement(`<span>More</span>`);
+      var infoButton = document.getElementById('info-button');
+      infoButton.appendChild(toolbarButton);
+      var toastDialog = document.getElementById('toast-dialog');
+      toastDialog.parentNode.removeChild(toastDialog);
+      document.getElementById('dialogs-page').appendChild(toastDialog);
+      var timeoutID = 0;
+      window.fn.showDialog = function (id) {
+        var elem = document.getElementById(id);
+        if (id === 'popover-dialog') {
+          elem.show(infoButton);
+        } else {
+          elem.show();
+          if (id === 'modal-dialog') {
+            clearTimeout(timeoutID);
+            timeoutID = setTimeout(function() { fn.hideDialog(id) }, 2000);
+          }
+        }
+      };
+      window.fn.hideDialog = function (id) {
+        document.getElementById(id).hide();
+      };
+      const moreOptions = document.querySelectorAll('.more-options');
+      if (!ons.platform.isAndroid()) {
+        document.getElementById('watHmmSure-dialog').setAttribute('modifier', 'rowfooter');
+        for (option of moreOptions) {
+          option.hasAttribute('modifier') ?
+            option.setAttribute('modifier', option.getAttribute('modifier') + ' longdivider') :
+            option.setAttribute('modifier', 'longdivider');
+        }
+      } else {
+        for (option of moreOptions) {
+          option.hasAttribute('modifier') ?
+            option.setAttribute('modifier', option.getAttribute('modifier') + ' nodivider') :
+            option.setAttribute('modifier', 'nodivider');
+        }
+      }
+    };
+    document.getElementById('appNavigator').topPage.onDestroy = function () {
+      var toastDialog = document.getElementById('toast-dialog');
+      toastDialog.parentNode.removeChild(toastDialog);
+      document.querySelector('#dialogs-page .page__content').appendChild(toastDialog);
+    }
+  </script>
+
+  <style>
+    #lorem-dialog .dialog-container {
+      height: 200px;
+    }
+
+    ons-list-title {
+      margin-top: 20px;
+    }
+  </style>
+</ons-page>

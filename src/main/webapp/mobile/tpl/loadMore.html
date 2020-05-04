@@ -1,0 +1,39 @@
+<ons-page id="load-more-page" on-infinite-scroll="fn.loadMore">
+  <p class="intro">
+    Useful for loading more items when the scroll reaches the bottom of the page, typically after an asynchronous API call.<br><br>
+  </p>
+
+  <ons-list id="list-node"></ons-list>
+
+  <div class="after-list">
+    <ons-icon icon="fa-spinner" size="26px" spin></ons-icon>
+  </div>
+
+  <script>
+    ons.getScriptPage().onInit = function () {
+      var listNode = document.getElementById('list-node');
+      var createListItem = function (i) {
+        return ons.createElement(`<ons-list-item>Item #${i}</ons-list-item>`);
+      }
+      for (var i = 0; i < 30; i++) {
+        listNode.appendChild(createListItem(i));
+      }
+      window.fn.loadMore = function (done) {
+        setTimeout(function() {
+          const listLength = listNode.children.length;
+          for (var i = 0; i < 10; i++) {
+            listNode.appendChild(createListItem(listLength + i));
+          }
+          done();
+        }, 600)
+      }
+    }
+  </script>
+
+  <style>
+    .after-list {
+      margin: 20px;
+      text-align: center;
+    }
+  </style>
+</ons-page>

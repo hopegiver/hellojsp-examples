@@ -1,0 +1,24 @@
+
+<ons-page id="tabbar-page">
+  <ons-toolbar>
+    <div class="center">Home</div>
+    <div class="right">
+      <ons-toolbar-button onclick="fn.toggleMenu()">
+        <ons-icon icon="ion-navicon, material:md-menu"></ons-icon>
+      </ons-toolbar-button>
+    </div>
+  </ons-toolbar>
+  <ons-tabbar swipeable id="appTabbar" position="auto">
+    <ons-tab label="Home" icon="ion-home" page="tpl/home.html" active></ons-tab>
+    <ons-tab label="Forms" icon="ion-edit" page="tpl/forms.html"></ons-tab>
+    <ons-tab label="Animations" icon="ion-film-marker" page="tpl/animations.html"></ons-tab>
+  </ons-tabbar>
+
+  <script>
+    ons.getScriptPage().addEventListener('prechange', function(event) {
+      if (event.target.matches('#appTabbar')) {
+        event.currentTarget.querySelector('ons-toolbar .center').innerHTML = event.tabItem.getAttribute('label');
+      }
+    });
+  </script>
+</ons-page>

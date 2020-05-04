@@ -1,0 +1,19 @@
+<ons-page>
+  <ons-toolbar>
+    <div class="left">
+      <ons-back-button>Home</ons-back-button>
+    </div>
+    <div class="center"></div>
+  </ons-toolbar>
+
+  <ons-tabbar position="auto">
+    <ons-tab label="Load More" page="tpl/loadMore.html"></ons-tab>
+    <ons-tab label="Lazy Repeat" page="tpl/lazyRepeat.html" active></ons-tab>
+  </ons-tabbar>
+
+  <script>
+    ons.getScriptPage().onInit = function () {
+      this.querySelector('ons-toolbar div.center').textContent = this.data.title;
+    }
+  </script>
+</ons-page>

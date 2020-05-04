@@ -1,0 +1,33 @@
+<ons-page id="lazy-repeat-page">
+  <p class="intro">
+    Automatically unloads items that are not visible and loads new ones. Useful when the list contains thousands of items.<br><br>
+  </p>
+  <ons-list>
+    <ons-lazy-repeat id="infinite-list"></ons-lazy-repeat>
+  </ons-list>
+
+  <script>
+    ons.getScriptPage().onInit = function () {
+      var infiniteList = document.getElementById('infinite-list');
+
+      infiniteList.delegate = {
+        createItemContent: function (i) {
+          return ons.createElement(`<ons-list-item>Item #${i}</ons-list-item>`);
+        },
+        countItems: function () {
+          return 3000;
+        }
+      };
+
+      infiniteList.refresh();
+    }
+  </script>
+
+  <style>
+    .intro {
+      text-align: center;
+      padding: 0 20px;
+      margin-top: 40px;
+    }
+  </style>
+</ons-page>
