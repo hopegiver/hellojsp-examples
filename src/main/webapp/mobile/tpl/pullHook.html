@@ -14,6 +14,14 @@
     <ons-list-header>Pull to refresh</ons-list-header>
   </ons-list>
 
+  <template id="kitten-list-tpl">
+  <% _.each(list, function(item) { %>
+    <ons-list-item>
+      {{item.subject}}
+    </ons-list-item>
+  <% }) %>
+  </template>
+
   <script>
     ons.getScriptPage().onInit = function () {
       this.querySelector('ons-toolbar div.center').textContent = this.data.title;
@@ -74,14 +82,19 @@
       var kittens = getRandomData();
       for (kitty of kittens) {
         var kitten = createKitten(kitty);
-        document.getElementById('kitten-list').appendChild(kitten);
+        //document.getElementById('kitten-list').appendChild(kitten);
       };
       pullHook.onAction = function (done) {
         setTimeout(function() {
-          document.getElementById('kitten-list').appendChild(createKitten(getRandomKitten()));
+          //document.getElementById('kitten-list').appendChild(createKitten(getRandomKitten()));
           done();
         }, 400);
       }
+      
+      $('#kitten-list').template({
+    	  templateId: '#kitten-list-tpl',
+    	  dataUrl: 'api/list.jsp'
+      })
     };
   </script>
 
