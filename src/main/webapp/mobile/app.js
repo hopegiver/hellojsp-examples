@@ -20,3 +20,7 @@ window.fn.pushPage = function (page, anim) {
     document.getElementById('appNavigator').pushPage(page.id, { data: { title: page.title } });
   }
 };
+
+$.helloException = function(ret) {
+	console.log(ret);
+}

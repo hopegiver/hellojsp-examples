@@ -6,7 +6,6 @@ $.fn.template = function(component) {
 	var el = this;
 	if(_.isString(component.el)) el = $(component.el);
 
-	//폼 서브밋 함수 : 템플릿에 form 태그가 존재할 경우 연동된다.
 	var submit = function(component) {
 		el.find('form').each(function(index, f) {
 			var f = this;
@@ -19,9 +18,6 @@ $.fn.template = function(component) {
 						url: _.isString(component.actionUrl) ? component.actionUrl : component.dataUrl,
 						type: 'POST',
 						dataType: 'json',
-						//processData: false,
-						//contentType: false,
-						//data: new FormData(f),
 						data: $(f).serialize(),
 						success: function(ret) {
 							if(ret.error == 0) {
@@ -29,6 +25,7 @@ $.fn.template = function(component) {
 								else if(ret.message != '') alert(ret.message);
 							} else {
 								if(_.isFunction(component.error)) component.error(ret);
+								else if(_.isFunction($.helloException)) $.helloException(ret);
 								else alert(ret.message);
 							}
 						},
@@ -43,7 +40,6 @@ $.fn.template = function(component) {
 		});
 	}
 
-	//렌더링 함수 : 템플릿과 데이타를 조합하여 출력하는 함수
 	var render = function(component) {
 		if(_.isFunction(component.before)) component.before(el);
 		if(_.isObject(component.data)) {
@@ -67,6 +63,8 @@ $.fn.template = function(component) {
 					component.error(ret);					
 				} else if(_.isFunction(el.$error)) {
 					el.$error(ret);
+				} else if(_.isFunction($.helloException)) {
+					$.helloException(ret);
 				} else {
 					alert(ret.message);
 				}
@@ -92,13 +90,13 @@ $.fn.template = function(component) {
 			console.log(component.templateUrl + ' is not exists.');
 		});
 	} else if(_.isString(component.templateId)) {
-		component.$template = _.template($(component.templateId).html());
+		component.$template = _.template($(component.templateId).html().replace(/&lt;%/g, '<%').replace(/%&gt;/g, '%>'));
 		render(component);
 	} else if(_.isString(component.template)) {
 		component.$template = _.template(component.template);
 		render(component);
 	} else {
-		component.$template = _.template(el.html());
+		component.$template = _.template(el.html().replace(/&lt;%/g, '<%').replace(/%&gt;/g, '%>'));
 		render(component);
 	}
 };
