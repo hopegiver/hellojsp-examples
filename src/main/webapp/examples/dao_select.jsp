@@ -7,7 +7,7 @@ DataSet posts = blog.find("");
 
 p.setLayout("blog");
 p.setBody("example/blog");
-p.setVar("posts", posts);
+p.setLoop("posts", posts);
 p.print();
 
 %>
@@ -21,6 +21,6 @@ DataSet posts = blog.find("");
 
 p.setLayout("blog");
 p.setBody("example/blog");
-p.setVar("posts", posts);
+p.setLoop("posts", posts);
 p.print();
 </pre>
