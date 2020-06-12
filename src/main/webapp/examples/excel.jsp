@@ -5,14 +5,16 @@ Excel excel = new Excel();
 String[] columns = {"login_id", "name", "passwd", "email", "cellphone", "zipcode", "address1", "address2", "reg_date"};
 DataSet rs = excel.read(Config.getDataDir() + "/sample.xlsx", columns);
 
-rs.next();
-//m.p(rs);
+m.p(rs);
 
+/*
+rs.next();
 String[] columns2 = {"login_id=>아이디", "name=>이름", "passwd=>암호", "email=>이메일", "cellphone=>휴대전화", "zipcode=>우편번호", "address1=>주소1", "address2=>주소2", "reg_date=>등록일"};
 excel.write("/tmp/xxxx.xlsx", rs, columns2);
 
 m.download("/tmp/xxxx.xlsx", "회원정보.xlsx");
 m.delFile("/tmp/xxxx.xlsx");
+*/
 
 %>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
