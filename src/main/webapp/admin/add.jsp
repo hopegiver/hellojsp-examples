@@ -19,7 +19,7 @@ if(m.isPost() && f.validate()) {
 		blog.item("att_file_name", f.getFileName("att_file"));
 		blog.item("att_file_code", attFile.getName());
 	}
-	blog.item("reg_date", Hello.time("yyyyMMddHHmmss"));
+	blog.item("reg_date", m.time("yyyyMMddHHmmss"));
 	blog.item("status", 1);
 
 	//blog.setDebug(out);

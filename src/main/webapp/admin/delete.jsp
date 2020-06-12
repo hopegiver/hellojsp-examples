@@ -17,7 +17,7 @@ f.addElement("id", info.s("id"), "title:'ID', required:true");
 if(m.isPost() && f.validate()) {
 
 	if(!"".equals(info.s("att_file_code"))) {
-		Hello.delFile(f.uploadDir + "/" + info.s("att_file_code"));
+		m.delFile(f.uploadDir + "/" + info.s("att_file_code"));
 	}
 	blog.item("status", -1);
 

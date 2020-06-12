@@ -20,7 +20,7 @@ m.p(ret);
 BlogDao blog = new BlogDao();
 //blog.setDebug(out);
 
-blog.item("subject", "Nice to meet you.");in
+blog.item("subject", "Nice to meet you.");
 blog.item("content", "Nice to meet you too.");
 blog.item("reg_date", Hello.time());
 blog.item("status", 1);

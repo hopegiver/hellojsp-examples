@@ -26,7 +26,7 @@ if(m.isPost() && f.validate()) {
 		blog.item("att_file_name", "");
 		blog.item("att_file_code", "");
 		info.put("att_file_code", "");
-		Hello.delFile(f.uploadDir + "/" + info.s("att_file_code"));
+		m.delFile(f.uploadDir + "/" + info.s("att_file_code"));
 	}
 	
 	File attFile = f.saveFile("att_file");
@@ -35,7 +35,7 @@ if(m.isPost() && f.validate()) {
 		blog.item("att_file_code", attFile.getName());
 
 		if(!"".equals(info.s("att_file_code"))) {
-			Hello.delFile(f.uploadDir + "/" + info.s("att_file_code"));
+			m.delFile(f.uploadDir + "/" + info.s("att_file_code"));
 		}
 	}
 

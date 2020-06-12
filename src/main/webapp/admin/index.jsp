@@ -19,7 +19,7 @@ lm.setOrderBy("a.id DESC");
 //Step3
 DataSet list = lm.getDataSet();
 while(list.next()) {
-	list.put("reg_date", Hello.time("yyyy-MM-dd", list.s("reg_date")));
+	list.put("reg_date", m.time("yyyy-MM-dd", list.s("reg_date")));
 }
 
 //Step4
