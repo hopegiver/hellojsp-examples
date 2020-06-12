@@ -27,12 +27,12 @@
 	  <li><a href="examples/dao_select.jsp">DataObject select</a></li>
 	  <li><a href="examples/dao_insert.jsp">DataObject insert</a></li>
 	  <li><a href="examples/dao_update.jsp">DataObject update</a></li>
-	  <li><a href="examples/mybatis_delete.jsp">Mybatis delete</a></li>
 	  <li><a href="examples/mybatis_select.jsp">Mybatis select</a></li>
 	  <li><a href="examples/mybatis_insert.jsp">Mybatis insert</a></li>
 	  <li><a href="examples/mybatis_update.jsp">Mybatis update</a></li>
 	  <li><a href="examples/mybatis_delete.jsp">Mybatis delete</a></li>
 	  <li><a href="examples/mybatis_transaction.jsp">Mybatis transaction</a></li>
+	  <li><a href="examples/form.jsp">Form</a></li>
 	  <li><a href="examples/download.jsp">File Downloading</a></li>
 	  <li><a href="examples/http.jsp">Http Client</a></li>
 	  <li><a href="examples/json.jsp">Json Utility</a></li>
@@ -43,9 +43,9 @@
 	  <li><a href="examples/search.jsp">Search Page</a></li>
 	  <li><a href="examples/upload.jsp">File Uploading</a></li>
 	  <li><a href="examples/xml.jsp">XML Utility</a></li>
+	  <li><a href="examples/excel.jsp">Excel</a></li>
 	  <li><a href="examples/hellojs.html">hellojs</a></li>
 	</ul>
-      
     </div>
    
   </body>
