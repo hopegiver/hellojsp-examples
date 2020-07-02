@@ -4,20 +4,20 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="Blog">
   <select id="selectOne" resultType="hashmap">
-    select * from TB_BLOG where id = #{id}
+    select * from tb_blog where id = #{id}
   </select>
   <select id="selectAll" resultType="hashmap">
-    SELECT id, subject, content, reg_date, status FROM TB_BLOG
+    SELECT id, subject, content, reg_date, status FROM tb_blog
   </select>
   <insert id="insert" parameterType="hashmap">
-  	insert into TB_BLOG (subject, content, reg_date)
+  	insert into tb_blog (subject, content, reg_date)
   	values (#{subject}, #{content}, #{reg_date})
   </insert>
   <update id="update" parameterType="hashmap">
-  	update TB_BLOG set subject = #{subject}, content = #{content}, status = #{status}
+  	update tb_blog set subject = #{subject}, content = #{content}, status = #{status}
 	where id = #{id}
   </update>
   <delete id="delete" parameterType="int">
-  	delete from TB_BLOG	where id = #{id}
+  	delete from tb_blog	where id = #{id}
   </delete>  
 </mapper>
