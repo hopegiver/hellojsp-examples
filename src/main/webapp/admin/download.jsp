@@ -1,13 +1,13 @@
 <%@ page contentType="text/html; charset=utf-8" %><%@ include file="init.jsp" %><%
 
-BlogDao blog = new BlogDao();
+BlogDao blogDao = new BlogDao();
 
 int id = m.reqInt("id");
 if(id == 0) { m.jsError("Primary Key is required"); return; }
 
-DataSet info = blog.find("id = " + id);
-if(!info.next()) { m.jsError("No Data"); return; }
+DataSet blog = blogDao.find("id = " + id);
+if(!blog.next()) { m.jsError("No Data"); return; }
 
-m.download(f.uploadDir + "/" + info.s("att_file_code"), info.s("att_file_name"));
+m.download(f.uploadDir + "/" + blog.s("att_file_code"), blog.s("att_file_name"));
 
 %>

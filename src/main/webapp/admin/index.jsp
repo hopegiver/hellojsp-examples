@@ -1,7 +1,7 @@
 <%@ page contentType="text/html; charset=utf-8" %><%@ include file="init.jsp" %><%
 
 //Step1
-BlogDao blog = new BlogDao();
+BlogDao blogDao = new BlogDao();
 
 //Step2
 f.addElement("s_keyword", null, null);
@@ -10,7 +10,7 @@ f.addElement("s_keyword", null, null);
 ListManager lm = new ListManager();
 //lm.setDebug(out);
 lm.setRequest(request);
-lm.setTable("tb_blog a");
+lm.setTable("tb_blogDao a");
 lm.setFields("a.*");
 lm.addWhere("a.status != -1");
 lm.addSearch("a.subject, a.content", f.get("s_keyword"), "LIKE");

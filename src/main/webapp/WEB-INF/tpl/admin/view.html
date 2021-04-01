@@ -11,30 +11,30 @@
 
 			<table class="table table-bordered">
 			<colgroup>
-				<col width="200"></col>
+				<col width="200"/>
 			</colgroup>
 			<tr>
 				<th>Subject</th>
-				<td>${info.subject}</td>
+				<td>${blog.subject}</td>
 			</tr>
 			<tr>
 				<th>Content</th>
-				<td>${info.content}</td>
+				<td>${blog.content}</td>
 			</tr>
 			<tr>
 				<th>File</th>
-				<td>${info.att_file_name}</td>
+				<td>${blog.att_file_name}</td>
 			</tr>
 			<tr>
 				<th>Date</th>
-				<td>${info.reg_date}</td>
+				<td>${blog.reg_date}</td>
 			</tr>															
 			</table>			
 
 			<div class="text-center">
 				<input type="button" value="Back" class="btn btn-default" onclick="history.go(-1)">
-				<a href="update.jsp?id=${info.id}" class="btn btn-primary">Edit</a>
-				<a href="delete.jsp?id=${info.id}" class="btn btn-danger">Delete</a>
+				<a href="edit.jsp?id=${blog.id}" class="btn btn-primary">Edit</a>
+				<a href="delete.jsp?id=${blog.id}" class="btn btn-danger">Delete</a>
 			</div>
 			
 		</div>
