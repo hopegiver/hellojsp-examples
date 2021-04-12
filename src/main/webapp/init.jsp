@@ -7,7 +7,8 @@ f.setRequest(request);
 
 Page p = new Page();
 p.setWriter(out);
-p.setVar("m", m);
+p.setVar("request", request);
+p.setVar("response", response);
 
 Message msg = new Message();
 msg.setLocale(Locale.KOREAN);

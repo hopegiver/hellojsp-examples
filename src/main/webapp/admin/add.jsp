@@ -1,4 +1,6 @@
-<%@ page contentType="text/html; charset=utf-8" %><%@ include file="init.jsp" %><%
+<%@ page contentType="text/html; charset=utf-8" %>
+<%@ include file="init.jsp" %>
+<%
 
 //Step1
 BlogDao blogDao = new BlogDao();
